@@ -29,9 +29,9 @@ export default function App() {
         />
         <Button title='add' onPress={handleAdd} />
       </View>
-      <FlatList data={courseGoals} renderItem={(item) => (
+      <FlatList data={courseGoals} renderItem={(itemData) => (
         <View style={styles.listItem}>
-          <Text>{item}</Text>
+          <Text>{itemData.item}</Text>
         </View>
       )} />
       <StatusBar style="auto" />
