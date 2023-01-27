@@ -21,7 +21,15 @@ export default function App() {
         />
         <Button title='add' onPress={handleAdd} />
       </View>
-      <View></View>
+      <View>
+        {courseGoals.map((item, index) => {
+          return (
+            <View key={index}>
+              <Text>{item}</Text>
+            </View>
+          )
+        })}
+      </View>
       <StatusBar style="auto" />
     </View>
   );
