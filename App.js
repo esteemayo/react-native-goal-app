@@ -15,7 +15,10 @@ export default function App() {
   const [enteredGoal, setEnteredGoal] = useState(null);
 
   const handleAdd = () => {
-    setCourseGoals((prev) => [...prev, enteredGoal]);
+    setCourseGoals((prev) => [
+      ...prev,
+      { id: (Math.round() * 10000).toString(), text: enteredGoal }
+    ]);
   };
 
   return (
@@ -31,7 +34,7 @@ export default function App() {
       </View>
       <FlatList data={courseGoals} renderItem={(itemData) => (
         <View style={styles.listItem}>
-          <Text>{itemData.item}</Text>
+          <Text>{itemData.item.text}</Text>
         </View>
       )} />
       <StatusBar style="auto" />
