@@ -23,7 +23,8 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <GoalInput onAdd={handleAdd} />
+      <Button title='Add New Goal' onPress={() => setOpenModal(true)} />
+      <GoalInput onAdd={handleAdd} visible={openModal} />
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={courseGoals}
