@@ -21,10 +21,14 @@ export default function App() {
     setCourseGoals((prev) => prev.filter((item) => item.id !== goalId));
   };
 
+  const handleCancel = () => {
+    setOpenModal(false);
+  };
+
   return (
     <View style={styles.screen}>
       <Button title='Add New Goal' onPress={() => setOpenModal(true)} />
-      <GoalInput onAdd={handleAdd} visible={openModal} />
+      <GoalInput onAdd={handleAdd} onCancel={handleCancel} visible={openModal} />
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={courseGoals}
