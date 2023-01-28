@@ -14,6 +14,7 @@ export default function App() {
       ...prev,
       { id: (Math.random() * 10000).toString(), text: value }
     ]);
+    setOpenModal(false);
   };
 
   const handleDelete = (goalId) => {
