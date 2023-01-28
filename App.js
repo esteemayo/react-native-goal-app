@@ -15,6 +15,10 @@ export default function App() {
     ]);
   };
 
+  const handleDelete = (goalId) => {
+    setCourseGoals((prev) => prev.filter((item) => item.id !== goalId));
+  };
+
   return (
     <View style={styles.screen}>
       <GoalInput
@@ -24,7 +28,11 @@ export default function App() {
         keyExtractor={(item, index) => item.id}
         data={courseGoals}
         renderItem={(itemData) => (
-          <GoalItem text={itemData.item.text} />
+          <GoalItem
+            id={itemData.item.id}
+            text={itemData.item.text}
+            onDelete={handleDelete}
+          />
         )}
       />
       <StatusBar style="auto" />
