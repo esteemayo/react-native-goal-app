@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Modal, StyleSheet, TextInput, View } from 'react-native';
 
-const GoalInput = ({ onAdd, visible }) => {
+const GoalInput = ({ onAdd, onCancel, visible }) => {
   const [enteredGoal, setEnteredGoal] = useState('');
 
   const handleChange = (value) => {
