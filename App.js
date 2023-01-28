@@ -17,7 +17,7 @@ export default function App() {
   const handleAdd = () => {
     setCourseGoals((prev) => [
       ...prev,
-      { id: (Math.round() * 10000).toString(), text: enteredGoal }
+      { id: Math.round() * 10000, text: enteredGoal }
     ]);
   };
 
@@ -32,11 +32,14 @@ export default function App() {
         />
         <Button title='add' onPress={handleAdd} />
       </View>
-      <FlatList data={courseGoals} renderItem={(itemData) => (
-        <View style={styles.listItem}>
-          <Text>{itemData.item.text}</Text>
-        </View>
-      )} />
+      <FlatList
+        keyExtractor={(item, index) => item.id}
+        data={courseGoals}
+        renderItem={(itemData) => (
+          <View style={styles.listItem}>
+            <Text>{itemData.item.text}</Text>
+          </View>
+        )} />
       <StatusBar style="auto" />
     </View>
   );
