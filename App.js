@@ -6,6 +6,7 @@ import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
 
 export default function App() {
+  const [openModal, setOpenModal] = useState(false);
   const [courseGoals, setCourseGoals] = useState([]);
 
   const handleAdd = (value) => {
