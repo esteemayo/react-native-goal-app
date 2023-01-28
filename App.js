@@ -11,7 +11,7 @@ export default function App() {
   const handleAdd = (value) => {
     setCourseGoals((prev) => [
       ...prev,
-      { id: Math.round() * 10000, text: value }
+      { id: (Math.random() * 10000).toString(), text: value }
     ]);
   };
 
